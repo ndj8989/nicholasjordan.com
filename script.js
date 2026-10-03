@@ -88,8 +88,8 @@ contactForm?.addEventListener('submit',async e=>{
   const original=button.textContent;
   button.disabled=true;button.textContent='Sending…';
   if(contactResult)contactResult.textContent='';
-  /* Temporary activation endpoint. After FormSubmit activation, replace with its invisible-email token. */
-  const destination=atob('bmljaG9sYXMuZC5qb3JkYW44OTg5QGdtYWlsLmNvbQ==');
+  /* Activated private FormSubmit endpoint. */
+  const destination='f88dd516ff0e17a312af9f5f14532257';
   try{
     const response=await fetch(`https://formsubmit.co/ajax/${destination}`,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(contactForm)))});
     if(!response.ok)throw new Error('Submission failed');
