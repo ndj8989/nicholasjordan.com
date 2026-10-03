@@ -7,17 +7,17 @@ const year=document.getElementById('year');if(year)year.textContent=new Date().g
 const shareButton=document.getElementById('sharePortfolio');
 const shareStatus=document.getElementById('shareStatus');
 shareButton?.addEventListener('click',async()=>{
-  const shareData={title:'Nicholas Jordan | Enterprise IT Operations Leader',text:'I thought Nicholas Jordan’s technology leadership portfolio might be relevant to you.',url:'https://nicholasjordan.com/'};
+  const shareData={title:'Nicholas Jordan | Enterprise IT Operations Leader',text:'I thought Nicholas Jordan’s technology leadership portfolio might be relevant to you.',url:'https://nicholasjordan-atl.com/'};
   try{
     if(navigator.share){await navigator.share(shareData);if(shareStatus)shareStatus.textContent='Portfolio ready to share.';return;}
     await navigator.clipboard.writeText(shareData.url);if(shareStatus)shareStatus.textContent='Portfolio link copied to your clipboard.';
   }catch(error){
     if(error?.name==='AbortError')return;
-    if(shareStatus)shareStatus.textContent='Copy this address to share: nicholasjordan.com';
+    if(shareStatus)shareStatus.textContent='Copy this address to share: nicholasjordan-atl.com';
   }
 });
 
-/* Private contact experience. The destination is assembled at runtime so it is not rendered on the page. */
+/* Private contact experience. */
 const contactEmailLink=document.querySelector('#contact a[href^="mailto:"]');
 if(contactEmailLink){
   contactEmailLink.removeAttribute('href');
@@ -54,7 +54,7 @@ modal.innerHTML=`
         <div class="contact-field"><label for="contactReason">Reason for reaching out</label><select id="contactReason" name="reason" required><option value="" selected disabled>Select one</option><option>Career Opportunity</option><option>Consulting or Advisory</option><option>Professional Networking</option><option>Other</option></select></div>
         <div class="contact-field full"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message" maxlength="750" required></textarea></div>
         <input class="contact-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="_subject" value="New message from NicholasJordan.com">
+        <input type="hidden" name="_subject" value="New message from NicholasJordan-ATL.com">
         <input type="hidden" name="_template" value="table">
         <p class="contact-privacy">Your information is used only to respond to your message.</p>
         <button class="contact-submit" type="submit">Send Message</button>
