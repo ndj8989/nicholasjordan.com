@@ -4,47 +4,7 @@ toggle?.addEventListener('click',()=>{const open=header.classList.toggle('nav-op
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{header.classList.remove('nav-open');toggle?.setAttribute('aria-expanded','false')}));
 const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
 
-/* Executive portfolio polish: reduce repetition, strengthen narrative hierarchy, and add restrained interaction. */
-const aboutLead=document.querySelector('#about .prose p:first-child');
-if(aboutLead)aboutLead.innerHTML='The work I’m most proud of has a common thread: <strong>people can feel the difference when technology operations work well.</strong>';
-
-document.querySelector('.people-outcomes')?.remove();
-
-const impact=document.getElementById('impact');
-if(impact){
-  const impactHeading=impact.querySelector('h2');
-  if(impactHeading)impactHeading.textContent='Maturing the operation. Raising the standard.';
-  const intro=document.createElement('p');
-  intro.className='impact-intro';
-  intro.textContent='I inherited an established technology operation and helped mature its service model, operating discipline, accountability, automation, and performance management, producing sustained improvements across customer experience, service delivery, reliability, endpoint governance, and financial control.';
-  impactHeading?.insertAdjacentElement('afterend',intro);
-  impact.querySelectorAll('.impact-grid div').forEach(cell=>{
-    const label=cell.querySelector('span')?.textContent.trim();
-    const value=cell.querySelector('strong');
-    if(!value)return;
-    if(label==='Post-Separation Asset Recovery')value.textContent='<10% → ~97%';
-    if(label==='Ticket-Volume Reduction')value.textContent='↓ 22%';
-  });
-}
-
-document.querySelectorAll('#projects .result').forEach(result=>{
-  if(result.querySelector('.result-label'))return;
-  result.insertAdjacentHTML('afterbegin','<span class="result-label">Measured outcome</span>');
-});
-
-const scope=document.querySelector('.flagship .scope');
-if(scope){
-  scope.innerHTML=`<h4>Program at a Glance</h4><div class="scope-matrix">
-    <div><strong>84 Weeks</strong><span>Integrated Roadmap</span></div>
-    <div><strong>13 Domains</strong><span>Technology Scope</span></div>
-    <div><strong>16 Gates</strong><span>Governance</span></div>
-    <div><strong>Infrastructure</strong><span>Network · MDF/IDF · Wireless</span></div>
-    <div><strong>Security</strong><span>Cyber · Physical · Surveillance</span></div>
-    <div><strong>Operations</strong><span>ITSM · Monitoring · Hyper-Care</span></div>
-    <div><strong>Financial</strong><span>CAPEX · OPEX · TCO</span></div>
-  </div>`;
-}
-
+/* Content lives in index.html; script adds behavior only. */
 const credentials=document.getElementById('credentials');
 if(credentials)credentials.classList.add('credentials-compact');
 
@@ -53,14 +13,6 @@ if(expertise)expertise.classList.add('expertise-refined');
 
 const resumeSection=document.querySelector('.resume');
 if(resumeSection)resumeSection.classList.add('career-materials-refined');
-
-const contact=document.getElementById('contact');
-if(contact){
-  const heading=contact.querySelector('h2');
-  if(heading)heading.textContent='Let’s Talk About What’s Next.';
-  const firstBody=[...contact.querySelectorAll('p')].find(p=>!p.closest('.share-panel')&&!p.classList.contains('kicker'));
-  if(firstBody)firstBody.textContent='I’m interested in technology leadership opportunities where operational maturity, infrastructure reliability, service excellence, and transformation matter.';
-}
 
 /* Visual styling lives in styles.css. */
 
@@ -76,7 +28,7 @@ shareButton?.addEventListener('click',async()=>{
 
 /* Private contact experience. */
 const contactEmailLink=document.querySelector('#contact a[href^="mailto:"]');
-if(contactEmailLink){contactEmailLink.removeAttribute('href');contactEmailLink.setAttribute('role','button');contactEmailLink.setAttribute('tabindex','0');contactEmailLink.textContent='Get in Touch';contactEmailLink.id='openContactForm';}
+if(contactEmailLink){contactEmailLink.removeAttribute('href');contactEmailLink.setAttribute('role','button');contactEmailLink.setAttribute('tabindex','0');contactEmailLink.textContent='Get in touch';contactEmailLink.id='openContactForm';}
 
 
 
